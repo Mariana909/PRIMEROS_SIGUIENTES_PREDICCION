@@ -118,9 +118,9 @@ Información de la gramática:
 
 Conjuntos PRIMEROS, SIGUIENTES y PREDICCIÓN:
 
-![Tablas Ejercicio 1](https://github.com/user-attachments/assets/7530ee4e-cbff-415e-9a1a-29a169934b81)
+<img width="733" height="212" alt="image" src="https://github.com/user-attachments/assets/f8dc67d1-95f8-4b03-a10f-85a808e1cea2" />
 
-<img width="483" height="413" alt="image" src="https://github.com/user-attachments/assets/aea9cbcd-7a9d-4d34-a7cb-76fefe31bb2b" />
+<img width="490" height="411" alt="image" src="https://github.com/user-attachments/assets/df14112d-74d2-48ae-863e-3b527d4b97ab" />
 
 
 ```
