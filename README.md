@@ -1,40 +1,66 @@
-# conjutos PRIMEROS, SIGUIENTES y PREDICCIÓN
+# Conjuntos PRIMEROS, SIGUIENTES y PREDICCIÓN
 
-Requerimiento:
-Python 
+Herramienta para calcular automáticamente los conjuntos **PRIMEROS**, **SIGUIENTES** y **PREDICCIÓN** de una gramática libre de contexto, con exportación a CSV.
 
-Instalación dependencias:
+---
+
+## Requisitos
+
+- Python 3
+
+## Instalación
+
+```bash
 python3 -m venv venv
 source venv/bin/activate
 pip install tabulate
+```
 
+---
 
-Programa
-Recibe uno o varios archivos con las gramáticas 
-Descripción de entrada
-Línea 1: Nombre de la gramática
-Línea 2: Número de reglas
-Línea 3 en adelante: Reglas de la gramática
+## Formato de entrada
 
-Formato Reglas
-  Terminales: minúsculas, números y operadores
-  No terminales: mayúsculas
-  Derivación: "->"
-  Simbolo vacío: _
+Cada gramática se define en un archivo de texto (o por entrada interactiva) con la siguiente estructura:
 
-  Formato
-  A -> a B
-  A -> b A 
-  A -> _
-  B -> a A 
-  B -> b B
+| Línea | Contenido |
+|-------|-----------|
+| 1 | Nombre de la gramática |
+| 2 | Número de reglas |
+| 3+ | Reglas de la gramática |
 
-Como ejecutar:
-Opción 1:
-Comando 
+### Convenciones
+
+| Elemento | Representación |
+|----------|---------------|
+| Terminales | Minúsculas, dígitos u operadores (`+`, `-`, `*`, `/`) |
+| No terminales | Mayúsculas |
+| Derivación | `->` |
+| Símbolo vacío | `_` |
+
+### Ejemplo de reglas
+
+```
+A -> a B
+A -> b A
+A -> _
+B -> a A
+B -> b B
+```
+
+---
+
+## Ejecución
+
+### Opción 1 — Modo interactivo
+
+```bash
 python3 psp.py
-A continuación copie y pegue lo siguiente
+```
 
+Luego ingrese la gramática manualmente. Por ejemplo:
+
+**Ejercicio 1**
+```
 Ejercicio 1
 11
 S -> A uno B C
@@ -48,6 +74,10 @@ C -> cinco D B
 C -> _
 D -> seis
 D -> _
+```
+
+**Ejercicio 2**
+```
 Ejercicio 2
 10
 S -> A B uno
@@ -60,35 +90,52 @@ C -> cuatro A B
 C -> cinco
 D -> seis
 D -> _
+```
 
+### Opción 2 — Desde archivos
 
-Opción 2:
-Usar comando
+```bash
 python3 psp.py Ejercicio1.txt Ejercicio2.txt
+```
 
+Se pueden pasar uno o varios archivos como argumentos.
 
-Salidas:
-Para la primera gramática
-Info sobre gramática:
+---
 
-<img width="462" height="311" alt="image" src="https://github.com/user-attachments/assets/7948aed4-e53e-4d4a-a408-cc7bf29d5e18" />
+## Salidas
 
-Conjuntos PRIMEROS, SIGUIENTES y PREDICCIÓN (Tablas)
+Por cada gramática procesada el programa imprime en consola:
 
-<img width="693" height="207" alt="image" src="https://github.com/user-attachments/assets/7530ee4e-cbff-415e-9a1a-29a169934b81" />
+1. **Información de la gramática** — símbolo inicial, no terminales, terminales y producciones.
+2. **Tablas de PRIMEROS, SIGUIENTES y PREDICCIÓN**.
+3. **Archivo CSV exportado** — con nombre igual al de la gramática (e.g. `Ejercicio 1.csv`).
 
+### Ejercicio 1
+
+Información de la gramática:
+
+![Gramática Ejercicio 1](https://github.com/user-attachments/assets/7948aed4-e53e-4d4a-a408-cc7bf29d5e18)
+
+Conjuntos PRIMEROS, SIGUIENTES y PREDICCIÓN:
+
+![Tablas Ejercicio 1](https://github.com/user-attachments/assets/7530ee4e-cbff-415e-9a1a-29a169934b81)
+
+```
 Exportado: Ejercicio 1.csv
+```
 
+### Ejercicio 2
 
-Para la segunda gramática
-Info sobre gramática
+Información de la gramática:
 
-<img width="455" height="286" alt="image" src="https://github.com/user-attachments/assets/08aefb5a-7f58-4486-b46d-17353434d18f" />
+![Gramática Ejercicio 2](https://github.com/user-attachments/assets/08aefb5a-7f58-4486-b46d-17353434d18f)
 
-Conjuntos PRIMEROS, SIGUIENTES y PREDICCIÓN (Tablas)
+Conjuntos PRIMEROS, SIGUIENTES y PREDICCIÓN:
 
-<img width="715" height="208" alt="image" src="https://github.com/user-attachments/assets/0f42d099-5116-4f15-9104-0a07cc5a1e31" />
+![Tablas Ejercicio 2 — parte 1](https://github.com/user-attachments/assets/0f42d099-5116-4f15-9104-0a07cc5a1e31)
 
-<img width="444" height="378" alt="image" src="https://github.com/user-attachments/assets/7ae9e0cf-8bc2-4238-9ce7-29a18af5c64c" />
+![Tablas Ejercicio 2 — parte 2](https://github.com/user-attachments/assets/7ae9e0cf-8bc2-4238-9ce7-29a18af5c64c)
 
+```
 Exportado: Ejercicio 2.csv
+```
