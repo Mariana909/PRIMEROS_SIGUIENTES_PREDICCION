@@ -117,7 +117,11 @@ class psp:
                                         primeros_beta.update(self.PRIMEROS[b] - {'_'})
                                         if '_' not in self.PRIMEROS[b]:
                                             break
+                                antes = len(self.SIGUIENTES[simbolo])
                                 self.SIGUIENTES[simbolo].update(primeros_beta)
+
+                                if len(self.SIGUIENTES[simbolo]) != antes:
+                                    cambios = True
                             # Agregar SIGUIENTES(A) si PRIMEROS(β) incluye _ o β=_
                             beta_puede_ser_vacio = all(
                                 '_' in self.PRIMEROS.get(b, set()) 
@@ -125,7 +129,11 @@ class psp:
                             ) if i + 1 < len(produccion) else True
 
                             if beta_puede_ser_vacio:
+                                antes = len(self.SIGUIENTES[simbolo])
                                 self.SIGUIENTES[simbolo].update(self.SIGUIENTES[no_terminal])
+
+                                if len(self.SIGUIENTES[simbolo]) != antes:
+                                    cambios = True
     def calcular_PREDICCION(self):
         for no_terminal, producciones in self.gramatica.producciones.items():
             for produccion in producciones:
@@ -264,10 +272,10 @@ def main_interactivo():
 if __name__ == "__main__":
     while True:
         try:
-            if main_archivo() == -1:
+            resultado=main_archivo()
+            if resultado == -1:
                 main_interactivo()
             else:
-                main_archivo()
                 break
         except ValueError:
             print("PROGRAMA FINALIZADO")
