@@ -120,6 +120,9 @@ Conjuntos PRIMEROS, SIGUIENTES y PREDICCIÓN:
 
 ![Tablas Ejercicio 1](https://github.com/user-attachments/assets/7530ee4e-cbff-415e-9a1a-29a169934b81)
 
+<img width="483" height="413" alt="image" src="https://github.com/user-attachments/assets/aea9cbcd-7a9d-4d34-a7cb-76fefe31bb2b" />
+
+
 ```
 Exportado: Ejercicio 1.csv
 ```
